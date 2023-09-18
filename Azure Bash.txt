@@ -1,0 +1,150 @@
+Requesting a Cloud Shell.Succeeded. 
+Connecting terminal...
+
+Welcome to Azure Cloud Shell
+
+Type "az" to use Azure CLI
+Type "help" to learn about Cloud Shell
+
+Storage fileshare subscription c0651e7b-5462-44bb-a18d-d83e58a204af is not registered to Microsoft.CloudShell Namespace. Please follow these instructions "https://aka.ms/RegisterCloudShell" to register. In future, unregistered subscriptions will have restricted access to CloudShell service.
+
+amila [ ~ ]$ git clone https://github.com/AmilaJayamaha/portfolio-website.git
+Cloning into 'portfolio-website'...
+remote: Enumerating objects: 28, done.
+remote: Counting objects: 100% (28/28), done.
+remote: Compressing objects: 100% (20/20), done.
+remote: Total 28 (delta 9), reused 21 (delta 6), pack-reused 0
+Receiving objects: 100% (28/28), 131.77 KiB | 16.47 MiB/s, done.
+Resolving deltas: 100% (9/9), done.
+amila [ ~ ]$ git config --global user.email "amilajayamaha96@gmail.com"
+amila [ ~ ]$ git config --global user.name "AmilaJayamaha"
+amila [ ~ ]$ cd portfolio-website
+amila [ ~/portfolio-website ]$ cd portfolio-website/03/prod/
+bash: cd: portfolio-website/03/prod/: No such file or directory
+amila [ ~/portfolio-website ]$ index
+bash: index: command not found
+amila [ ~/portfolio-website ]$ /index
+bash: /index: No such file or directory
+amila [ ~/portfolio-website ]$ ls
+AJ.jpg  index.html  README.md  styles.css
+amila [ ~/portfolio-website ]$ git init
+Reinitialized existing Git repository in /home/amila/portfolio-website/.git/
+amila [ ~/portfolio-website ]$ git add .
+amila [ ~/portfolio-website ]$ git commit -m "new"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+amila [ ~/portfolio-website ]$ az webapp deployment source config-local-git --name amilajayamaha --resource-group first_project
+{
+  "url": "https://None@amilajayamaha.scm.azurewebsites.net/amilajayamaha.git"
+}
+amila [ ~/portfolio-website ]$ az webapp deployment list-publishing-credentials --name amilajayamaha --resource-group first_project
+{
+  "id": "/subscriptions/c0651e7b-5462-44bb-a18d-d83e58a204af/resourceGroups/first_project/providers/Microsoft.Web/sites/amilajayamaha/publishingcredentials/$amilajayamaha",
+  "kind": null,
+  "location": "East US",
+  "name": "amilajayamaha",
+  "publishingPassword": "rekiJHNRLDNSja560hkyq7AjjL4J2DBMmKaQ6n8Qm9jpmGQbF25d3Sjc9Z9n",
+  "publishingPasswordHash": null,
+  "publishingPasswordHashSalt": null,
+  "publishingUserName": "$amilajayamaha",
+  "resourceGroup": "first_project",
+  "scmUri": "https://$amilajayamaha:rekiJHNRLDNSja560hkyq7AjjL4J2DBMmKaQ6n8Qm9jpmGQbF25d3Sjc9Z9n@amilajayamaha.scm.azurewebsites.net",
+  "type": "Microsoft.Web/sites/publishingcredentials"
+}
+amila [ ~/portfolio-website ]$ git remote azure 'https://$amilajayamaha:rekiJHNRLDNSja560hkyq7AjjL4J2DBMmKaQ6n8Qm9jpmGQbF25d3Sjc9Z9n@amilajayamaha.scm.azurewebsites.net'
+error: Unknown subcommand: azure
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+amila [ ~/portfolio-website ]$ git remote add azure 'https://$amilajayamaha:rekiJHNRLDNSja560hkyq7AjjL4J2DBMmKaQ6n8Qm9jpmGQbF25d3Sjc9Z9n@amilajayamaha.scm.azurewebsites.net'
+amila [ ~/portfolio-website ]$ git push azure master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://amilajayamaha.scm.azurewebsites.net'
+amila [ ~/portfolio-website ]$ git push azure main
+Enumerating objects: 28, done.
+Counting objects: 100% (28/28), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (28/28), 131.77 KiB | 131.77 MiB/s, done.
+Total 28 (delta 9), reused 28 (delta 9), pack-reused 0
+remote: The current deployment branch is 'master', but nothing has been pushed to it
+remote: Error - Changes committed to remote repository but deployment to website failed.
+To https://amilajayamaha.scm.azurewebsites.net
+ * [new branch]      main -> main
+amila [ ~/portfolio-website ]$ git push azure main
+Everything up-to-date
+amila [ ~/portfolio-website ]$ az webapp up --name amilajayamaha-96 --html
+The webapp 'amilajayamaha-96' doesn't exist
+Creating Resource group 'amilajayamaha96_rg_5125' ...
+Resource group creation complete
+Creating AppServicePlan 'amilajayamaha96_asp_3391' ...
+Creating webapp 'amilajayamaha-96' ...
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir /home/amila/portfolio-website ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://amilajayamaha-96.azurewebsites.net
+Setting 'az webapp up' default arguments for current directory. Manage defaults with 'az configure --scope local'
+--resource-group/-g default: amilajayamaha96_rg_5125
+--sku default: F1
+--plan/-p default: amilajayamaha96_asp_3391
+--location/-l default: eastus
+--name/-n default: amilajayamaha-96
+{
+  "URL": "http://amilajayamaha-96.azurewebsites.net",
+  "appserviceplan": "amilajayamaha96_asp_3391",
+  "location": "eastus",
+  "name": "amilajayamaha-96",
+  "os": "Windows",
+  "resourcegroup": "amilajayamaha96_rg_5125",
+  "runtime_version": "-",
+  "runtime_version_detected": "-",
+  "sku": "FREE",
+  "src_path": "//home//amila//portfolio-website"
+}
+amila [ ~/portfolio-website ]$ git remote add azure 'https://$amilajayamaha:rekiJHNRLDNSja560hkyq7AjjL4J2DBMmKaQ6n8Qm9jpmGQbF25d3Sjc9Z9n@amilajayamaha.scm.azurewebsites.net'
+error: remote azure already exists.
+amila [ ~/portfolio-website ]$ git push azure main
+Everything up-to-date
+amila [ ~/portfolio-website ]$ az webapp up --name amilajayamaha-96 --html
+Webapp 'amilajayamaha-96' already exists. The command will deploy contents to the existing app.
+Creating AppServicePlan 'amilajayamaha96_asp_3391' ...
+Creating zip with contents of dir /home/amila/portfolio-website ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://amilajayamaha-96.azurewebsites.net
+Setting 'az webapp up' default arguments for current directory. Manage defaults with 'az configure --scope local'
+--resource-group/-g default: amilajayamaha96_rg_5125
+--sku default: F1
+--plan/-p default: amilajayamaha96_asp_3391
+--location/-l default: eastus
+--name/-n default: amilajayamaha-96
+{
+  "URL": "http://amilajayamaha-96.azurewebsites.net",
+  "appserviceplan": "amilajayamaha96_asp_3391",
+  "location": "eastus",
+  "name": "amilajayamaha-96",
+  "os": "Windows",
+  "resourcegroup": "amilajayamaha96_rg_5125",
+  "runtime_version": "-",
+  "runtime_version_detected": "-",
+  "sku": "FREE",
+  "src_path": "//home//amila//portfolio-website"
+}
